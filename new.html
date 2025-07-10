@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Publication Summary Input</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container my-5" style="max-width: 700px;">
+    <div class="card shadow-lg rounded-4">
+        <div class="card-body p-5">
+            <h2 class="text-center mb-4 text-primary">Faculty Publication Summary</h2>
+            <form action="upload.html" method="get" class="needs-validation" novalidate>
+
+                <div class="mb-3">
+                    <label for="facultyName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="facultyName" name="facultyName" required>
+                    <div class="invalid-feedback">Please enter the full name.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="facultyEmail" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="facultyEmail" name="facultyEmail" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="department" class="form-label">Department</label>
+                    <input type="text" class="form-control" id="department" name="department" required>
+                    <div class="invalid-feedback">Please enter the department.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="remarks" class="form-label">Remarks / Research Interests</label>
+                    <textarea class="form-control" id="remarks" name="remarks" rows="3" required></textarea>
+                    <div class="invalid-feedback">Please enter some remarks or interests.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Reference ID (auto-generated)</label>
+                    <input type="text" class="form-control" value="FAC2025001" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label for="yearRange" class="form-label">Select Year Range</label>
+                    <select class="form-select" id="yearRange" name="yearRange" required>
+                        <option value="">Choose...</option>
+                        <option>2010-2015</option>
+                        <option>2015-2020</option>
+                        <option>2020-2025</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a year range.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label d-block">Publication Types</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="journal" id="pub1" name="publication[]" required>
+                        <label class="form-check-label" for="pub1">Journal Papers</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="conference" id="pub2" name="publication[]">
+                        <label class="form-check-label" for="pub2">Conference Papers</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="book" id="pub3" name="publication[]">
+                        <label class="form-check-label" for="pub3">Book Chapters</label>
+                    </div>
+                    <div class="invalid-feedback d-block">Select at least one publication type.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label d-block">Role</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="guide" value="Guide" required>
+                        <label class="form-check-label" for="guide">Guide</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="role" id="coGuide" value="Co-Guide">
+                        <label class="form-check-label" for="coGuide">Co-Guide</label>
+                    </div>
+                    <div class="invalid-feedback d-block">Please select your role.</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="experience" class="form-label">Years of Experience</label>
+                    <input type="range" class="form-range" min="0" max="50" id="experience" name="experience" required>
+                    <div class="invalid-feedback">Please select years of experience.</div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary px-5 rounded-pill">Submit Summary</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Bootstrap validation
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+</script>
+</body>
+</html>
